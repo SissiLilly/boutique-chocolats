@@ -1,0 +1,26 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Collection{% endblock %}
+
+{% block content %}
+    <h1>Collection</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ collection.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom_collection</th>
+                <td>{{ collection.nomCollection }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_crud_collection_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_crud_collection_edit', {'id': collection.id}) }}">edit</a>
+
+    {{ include('admin/admin_crud_collection/_delete_form.html.twig') }}
+{% endblock %}

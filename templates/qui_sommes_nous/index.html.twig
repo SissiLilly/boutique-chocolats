@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Qui sommes-nous? - Huvelin{% endblock %}
+
+{% block content %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="container py-5">
+    <h1 class="text-center mb-5">Qui sommes-nous?</h1>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <img src="{{ asset('assets/images/equipe-team.png') }}" alt="Equipe" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h2>Notre équipe</h2>
+            <p>Nous sommes une équipe passionnée par la mode et l'élégance, et nous mettons tout en oeuvre pour vous offrir des produits de qualité et un service irréprochable.</p>
+            <p>Nous travaillons avec des marques prestigieuses et des artisans talentueux pour vous proposer une sélection de produits haut de gamme.</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h2>Notre histoire</h2>
+            <p>Nous avons ouvert notre première boutique en 1995, avec pour ambition de proposer des produits de qualité à une clientèle exigeante.</p>
+            <p>Au fil des années, nous avons développé notre offre en nous entourant des meilleurs artisans et en sélectionnant les marques les plus prestigieuses.</p>
+            <p>Aujourd'hui, nous sommes fiers de proposer une gamme de produits complète, allant des vêtements aux accessoires en passant par les chaussures et les sacs.</p>
+        </div>
+        <div class="col-md-6 mb-4">
+            <img src="{{ asset('assets/images/history.jpg') }}" alt="Equipe" class="img-fluid">
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row mt-5">
+        <div class="col-md-6 mb-4">
+            <img src="{{ asset('assets/images/chocolat-qui.webp') }}" alt="Equipe" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h2>L'artisanat à l'honneur</h2>
+            <p>Nous sommes convaincus que la qualité passe avant tout par le savoir-faire et la passion des artisans.</p>
+            <p>C'est pourquoi nous avons choisi de travailler avec des artisans talentueux, capables de produire des pièces uniques et de qualité exceptionnelle.</p>
+            <p>Nous sommes fiers de contribuer à la préservation de cet héritage artisanal, en proposant des produits de qualité, fabriqués avec passion et minutie.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

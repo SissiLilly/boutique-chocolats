@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter - Huvelin{% endblock %}
+
+{% block content %}
+    <h2 class="mt-4">Nous contacter</h2>
+    <p>N'hésitez pas à prendre contact avec notre équipe, nous vous répondrons dans les meilleurs délais.</p>
+    
+    {% for message in app.flashes('notice') %}
+        <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    {{ form(form) }}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <strong>Huvelin Boutique</strong>
+                    <hr>
+                    <p>
+                        <i class="bi bi-telephone-fill"></i> 06 20 30 40 50<br>
+                        <i class="bi bi-geo-alt-fill"></i> 8 rue des Lylas Fleuris, 75000 Paris<br>
+                        <i class="bi bi-envelope-fill"></i> contact@huvelin.fr<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

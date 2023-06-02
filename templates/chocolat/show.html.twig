@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.nom }} - Huvelin Boutique Chocolat{% endblock %}
+
+{% block content %}
+    <div class="my-5">
+        <div class="row">
+            <div class="col-md-5">
+                <img src="/uploads/{{ product.imageName }}" alt="{{ product.nom }}" class="img-fluid">
+            </div>
+            <div class="col-md-7 my-auto">
+                <h3>{{ product.nom }}</h3>
+                <p>{{ product.titre }}</p>
+                <span class="product-page-price">{{ (product.prix)|number_format(2, ',', '.') }} €</span>
+                <hr>
+                <p>
+                    {{ product.description }}
+                </p>
+                <a  href="{{ path('add_to_cart', { 'id' : product.id }) }}"  class="btn btn-primary">Ajouter au panier</a>
+            </div>
+        </div>
+        <hr>
+        <h3>Nos meilleures ventes</h3>
+        <p>Découvrez les articles les plus vendus.</p>
+        <div class="row mb-10">
+            {% for product in products %}
+                <div class="col-md-3">
+                    {% include 'chocolat/single_product.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

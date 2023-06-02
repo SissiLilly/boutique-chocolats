@@ -1,0 +1,37 @@
+<header class="bg-white py-3 bg-color-main">
+  <div class="container-fluid">
+    <div class="row justify-content-end align-items-center">
+      <div class="col-4 pt-1"></div>
+      <a href="/" class="col-4 text-center">
+        <img src="{{asset('assets/images/logo-huvelin.png')}}" alt="Huvelin Chocolatier Logo">
+      </a>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="text-dark mx-3" href="{{ path('app_panier') }}" aria-label="Mon panier">
+     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 28 31" aria-hidden="true" class="w-[18px] h-[19px] lg:w-[25px] lg:h-[25px]"><path d="M1.674 28.388a.35.35 0 0 1-.698-.05l1.32-18.501a1.896 1.896 0 0 1 1.889-1.756h20.252c.992 0 1.817.767 1.89 1.757l1.32 18.5a1.894 1.894 0 0 1-1.888 2.027H8.144a.35.35 0 1 1 0-.7h17.614a1.194 1.194 0 0 0 1.19-1.277l-1.32-18.5a1.195 1.195 0 0 0-1.191-1.107H4.185c-.625 0-1.144.484-1.19 1.107l-1.32 18.5z"></path><path d="M7.723 13.056a.35.35 0 1 1-.7 0V7.654A7.289 7.289 0 0 1 21.6 7.66v5.395a.35.35 0 1 1-.7 0v-5.39a6.589 6.589 0 0 0-6.588-6.476A6.588 6.588 0 0 0 7.723 7.66v5.396z"></path></svg>
+          <span class="d-none d-md-inline">Mon panier</span>
+        </a>
+        <div class="navbar-item-custom">
+          {% if app.user %}
+            <a class="text-dark mx-3" href="{{ path('app_account') }}" aria-label="Mon compte">
+              <i class="fas fa-user me-1"></i>
+              <span class="d-none d-md-inline">Mon compte</span>
+            </a>
+            <a class="text-dark mx-3" href="{{ path('app_logout') }}" aria-label="Déconnexion">
+           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 33 33" aria-hidden="true" class="w-[30px] h-[30px]">
+    <path d="M23.783 7.775c-.471-3.035-2.963-5.516-6-5.974a7.222 7.222 0 0 0-8.253 8.271c.465 3.034 2.947 5.518 5.981 5.984a7.222 7.222 0 0 0 8.272-8.281zm-1.516 6.757A7.935 7.935 0 0 1 15.4 16.76c-3.34-.512-6.064-3.238-6.576-6.578a7.936 7.936 0 0 1 9.066-9.086c3.343.504 6.077 3.226 6.596 6.566a7.936 7.936 0 0 1-2.22 6.87zM9.315 31.287h19.962c.73 0 1.325-.595 1.325-1.325v-4.285c0-.403-.172-.771-.476-1.018-3.12-2.535-7.644-4.437-13.47-4.437-5.824 0-10.352 1.904-13.468 4.437a1.294 1.294 0 0 0-.475 1.019v4.003l6.602 1.606zM2 29.963v-4.285c0-.617.266-1.19.738-1.572 3.235-2.63 7.914-4.597 13.919-4.597 6.005 0 10.68 1.966 13.919 4.596.473.383.74.956.74 1.572v4.285A2.04 2.04 0 0 1 29.276 32L9.23 31.99l-6.927-1.674A.339.339 0 0 1 2 29.963z"></path>
+</svg>
+              <span class="d-none d-md-inline">Déconnexion</span>
+            </a>
+          {% else %}
+            <a class="text-dark mx-3" href="{{ path('app_login') }}" aria-label="Connexion">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 33 33" aria-hidden="true" class="w-[30px] h-[30px]">
+    <path d="M23.783 7.775c-.471-3.035-2.963-5.516-6-5.974a7.222 7.222 0 0 0-8.253 8.271c.465 3.034 2.947 5.518 5.981 5.984a7.222 7.222 0 0 0 8.272-8.281zm-1.516 6.757A7.935 7.935 0 0 1 15.4 16.76c-3.34-.512-6.064-3.238-6.576-6.578a7.936 7.936 0 0 1 9.066-9.086c3.343.504 6.077 3.226 6.596 6.566a7.936 7.936 0 0 1-2.22 6.87zM9.315 31.287h19.962c.73 0 1.325-.595 1.325-1.325v-4.285c0-.403-.172-.771-.476-1.018-3.12-2.535-7.644-4.437-13.47-4.437-5.824 0-10.352 1.904-13.468 4.437a1.294 1.294 0 0 0-.475 1.019v4.003l6.602 1.606zM2 29.963v-4.285c0-.617.266-1.19.738-1.572 3.235-2.63 7.914-4.597 13.919-4.597 6.005 0 10.68 1.966 13.919 4.596.473.383.74.956.74 1.572v4.285A2.04 2.04 0 0 1 29.276 32L9.23 31.99l-6.927-1.674A.339.339 0 0 1 2 29.963z"></path>
+</svg>
+              <span class="d-none d-md-inline">Connexion</span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

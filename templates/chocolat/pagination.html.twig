@@ -1,0 +1,80 @@
+{% if pageCount > 1 %}
+    <nav>
+        <ul class="pagination justify-content-center">
+            {% if current == 1 %}
+                <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+            {% else %}
+                <li class="page-item"><a href="{{ path(route, query|merge({'page': current - 1})) }}" class="page-link">&laquo;</a></li>
+            {% endif %}
+
+            {% for page in pagesInRange %}
+                {% if page != current %}
+                    <li class="page-item"><a href="{{ path(route, query|merge({'page': page})) }}" class="page-link">{{ page }}</a></li>
+                {% else %}
+                    <li class="page-item active"><span class="page-link">{{ page }}</span></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if current == pageCount %}
+                <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+            {% else %}
+                <li class="page-item"><a href="{{ path(route, query|merge({'page': current + 1})) }}" class="page-link">&raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <style>
+    .pagination {
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.pagination li {
+    display: inline-block;
+}
+
+.pagination li a,
+.pagination li span {
+    color: #4285F4;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 6px 12px;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.pagination li.active span,
+.pagination li a:hover {
+    background-color: #4285F4;
+    color: #FFF;
+    border-color: #4285F4;
+}
+
+.pagination li.disabled span,
+.pagination li.disabled a {
+    color: #999;
+    pointer-events: none;
+    cursor: default;
+    background-color: #F9F9F9;
+}
+
+.pagination li:first-child a,
+.pagination li:last-child a {
+    border-radius: 2px;
+}
+
+.pagination li:first-child a {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.pagination li:last-child a {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+    </style>
+{% endif %}
+

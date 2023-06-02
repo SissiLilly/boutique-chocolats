@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une adresse - La Boutique Française{% endblock %}
+
+{% block content %}
+    <div class="container mt-5 mb-5">
+        <h1 class="mb-5">Gérer mes adresses</h1>
+        <a href="{{ path('account_address') }}" class="mb-3"><i class="fas fa-chevron-left me-2"></i>Retour</a>
+        <hr>
+
+        {{ form_start(form) }}
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    
+                        {{ form_row(form.address, {'label': 'Adresse', 'attr': {'class': 'form-control mb-3'}}) }}
+                </div>
+                <div class="col-md-6">
+                  {{ form_row(form.city, {'label': 'Ville', 'attr': {'class': 'form-control'}}) }}
+                  
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    {{ form_row(form.postal_code, {'label': 'Code postal', 'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.telephone, {'label': 'Téléphone', 'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+        {{ form_row(form.pays, {'label': 'Pays', 'attr': {'class': 'form-control'}}) }}
+          
+
+            <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

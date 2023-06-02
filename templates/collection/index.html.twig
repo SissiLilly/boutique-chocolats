@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Maison du Chocolat Huvelin - Collections{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .collection-card { text-align: center; padding: 1em; margin-bottom: 2em; }
+        .collection-card img { width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); }
+        .collection-title { font-size: 20px; margin-top: 1em; }
+    </style>
+{% endblock %}
+
+{% block content %}
+{% set collections = [
+    {
+        'name': 'Idée Cadeau',
+        'description': 'Découvrez notre sélection d\'idées cadeaux chocolatées, parfaites pour offrir à vos proches lors d\'occasions spéciales.',
+        'image': asset('assets/images/idee-cadeau-image.png')
+    },
+    {
+        'name': 'Coffrets assortis',
+        'description': 'Laissez-vous séduire par nos coffrets assortis de chocolats fins, soigneusement choisis pour offrir une variété de saveurs exquises.',
+        'image': asset('assets/images/coufret.png')
+    },
+    {
+        'name': 'Truffles',
+        'description': 'Découvrez nos truffes au chocolat, des créations délicieusement fondantes qui vous feront succomber à chaque bouchée.',
+        'image': asset('assets/images/truffles.png')
+    },
+    {
+        'name': 'Tablets',
+        'description': 'Plongez dans le monde des tablettes de chocolat raffinées, où chaque carré est une expérience gustative unique et indulgente.',
+        'image': asset('assets/images/tablet-chocolat.png')
+    }
+] %}
+
+
+<div class="container mt-4 mb-4">
+    <h1 class="display-4 mb-4">Découvrir nos gammes</h1>
+    <div class="row mb-4">
+        {% for collection in collections %}
+            <div class="col-md-6">
+                <div class="collection-card">
+                    <img src="{{ collection.image }}" alt="{{ collection.name }}" class="img-fluid">
+                    <h2 class="collection-title mt-4">{{ collection.name }}</h2>
+                    <p>{{ collection.description }}</p>
+                </div>
+            </div>
+            {% if loop.index is even %}
+                </div>
+                {% if not loop.last %}
+                    <div class="row">
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add your custom animations or JavaScript here
+    </script>
+{% endblock %}

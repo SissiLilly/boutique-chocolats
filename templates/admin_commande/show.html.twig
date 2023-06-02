@@ -1,0 +1,62 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Commande{% endblock %}
+
+{% block content %}
+    <h1>Commande</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ commande.id }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ commande.createdAt ? commande.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nom_transporteur</th>
+                <td>{{ commande.nomTransporteur }}</td>
+            </tr>
+            <tr>
+                <th>Prix_transporteur</th>
+                <td>{{ commande.prixTransporteur }}</td>
+            </tr>
+            <tr>
+                <th>Livraison</th>
+                <td>{{ commande.livraison }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ commande.reference }}</td>
+            </tr>
+            <tr>
+                <th>Product</th>
+                <td>{{ commande.Product }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ commande.quantite }}</td>
+            </tr>
+            <tr>
+                <th>PrixCommande</th>
+                <td>{{ commande.prixCommande }}</td>
+            </tr>
+            <tr>
+                <th>PrixProduit</th>
+                <td>{{ commande.prixProduit }}</td>
+            </tr>
+            <tr>
+                <th>EtatCommande</th>
+                <td>{{ commande.EtatCommande }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_commande_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_commande_edit', {'id': commande.id}) }}">edit</a>
+
+    {{ include('admin_commande/_delete_form.html.twig') }}
+{% endblock %}

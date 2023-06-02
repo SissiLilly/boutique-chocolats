@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block carousel %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center my-5">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title text-center mb-4">Inscription</h1>
+
+        <div style="max-width: 100%;">
+          {{ form_start(form) }}
+          {{ form_row(form.prenom, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Prénom'}}) }}
+          {{ form_row(form.nom, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Nom'}}) }}
+          {{ form_row(form.email, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Email'}}) }}
+          {{ form_row(form.password.first, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Mot de passe'}}) }}
+          {{ form_row(form.password.second, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Mot de passe'}}) }}
+          {{ form_widget(form.submit, {'attr': {'class': 'w-100 btn btn-lg btn-primary mt-4'}}) }}
+          {{ form_end(form) }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <img src="{{ asset('assets/images/hero-registration.png') }}" alt="placeholder image" class="img-fluid rounded-end">
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+vich_uploader:
+    db_driver: orm
+
+    metadata:
+        type: attribute
+
+    mappings:
+     
+        chocolat:
+            uri_prefix: /images/chocolat
+            upload_destination: '%kernel.project_dir%/public/images/chocolat'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

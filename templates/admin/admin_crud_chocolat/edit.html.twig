@@ -1,0 +1,30 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Editer Chocolat{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        .content {
+            width: 70%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="content">
+            <h1>Editer Chocolat</h1>
+
+            {{ include('admin/admin_crud_chocolat/_form.html.twig', {'button_label': 'Update'}) }}
+
+            <a href="{{ path('app_admin_crud_chocolat_index') }}">back to list</a>
+
+            {{ include('admin/admin_crud_chocolat/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

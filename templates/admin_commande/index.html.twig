@@ -1,0 +1,53 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Commande index{% endblock %}
+
+{% block content %}
+    <h1>Commande index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CreatedAt</th>
+                <th>Nom_transporteur</th>
+                <th>Prix_transporteur</th>
+                <th>Livraison</th>
+                <th>Reference</th>
+                <th>Product</th>
+                <th>Quantite</th>
+                <th>PrixCommande</th>
+                <th>PrixProduit</th>
+                <th>EtatCommande</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.id }}</td>
+                <td>{{ commande.createdAt ? commande.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ commande.nomTransporteur }}</td>
+                <td>{{ commande.prixTransporteur }}</td>
+                <td>{{ commande.livraison }}</td>
+                <td>{{ commande.reference }}</td>
+                <td>{{ commande.Product }}</td>
+                <td>{{ commande.quantite }}</td>
+                <td>{{ commande.prixCommande }}</td>
+                <td>{{ commande.prixProduit }}</td>
+                <td>{{ commande.EtatCommande }}</td>
+                <td>
+                    <a href="{{ path('app_admin_commande_show', {'id': commande.id}) }}">show</a>
+                    <a href="{{ path('app_admin_commande_edit', {'id': commande.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_commande_new') }}">Create new</a>
+{% endblock %}
